@@ -3,7 +3,7 @@ name: tests
 on: [push, pull_request]
 
 env:
-  DOCKER_REGISTRY: ghcr.io/commaai
+  DOCKER_REGISTRY: ghcr.io/${{ github.repository_owner }}
   RUN: docker run --shm-size 1G --name cereal cereal /bin/sh -c
   CI_RUN: docker run -e GITHUB_ACTION -e GITHUB_REF -e GITHUB_HEAD_REF -e GITHUB_SHA -e GITHUB_REPOSITORY -e GITHUB_RUN_ID --rm cerealci /bin/bash -c
   BUILD: |
@@ -20,7 +20,7 @@ jobs:
     - name: Build docker image
       run: eval "$BUILD"
     - name: Push to dockerhub
-      if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && github.repository == 'commaai/cereal'
+      if: github.ref == 'refs/heads/driving-coach' && github.event_name != 'pull_request' && github.repository == '${{ github.repository_owner }}/cereal'
       run: |
         docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
         docker tag cereal $DOCKER_REGISTRY/cereal:latest
