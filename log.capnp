@@ -513,6 +513,8 @@ struct RadarState @0x9a185389d6fdd05f {
     aLeadTau @12 :Float32;
     modelProb @13 :Float32;
     radar @14 :Bool;
+    thw @15 :Float32;  # seconds
+    ttc @16 :Float32;  # seconds
 
     aLeadDEPRECATED @5 :Float32;
   }
