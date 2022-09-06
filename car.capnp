@@ -113,6 +113,11 @@ struct CarEvent @0x9b1657f34caf3ad3 {
     controlsdLagging @112;
     resumeBlocked @113;
 
+    # driving coach
+    tailgating @114;
+    promptTailgating @115;
+    persistentTailgating @116;
+
     radarCanErrorDEPRECATED @15;
     communityFeatureDisallowedDEPRECATED @62;
     radarCommIssueDEPRECATED @67;
