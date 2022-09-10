@@ -1873,6 +1873,17 @@ struct EncodeData {
 struct UserFlag {
 }
 
+struct DrivingCoachState {
+  tailgatingStatus @0 :TailgatingStatus;
+
+  struct TailgatingStatus {
+    active @0 :Bool;
+    isTailgating @1 :Bool;
+    duration @2 :UInt64;  # nanoseconds
+    warningLevel @3 :UInt16;
+  }
+}
+
 struct Event {
   logMonoTime @0 :UInt64;  # nanoseconds
   valid @67 :Bool = true;
@@ -1942,6 +1953,9 @@ struct Event {
 
     # user flags
     userFlag @93 :UserFlag;
+
+    # driving coach
+    drivingCoachState @94 :DrivingCoachState;
 
     # *********** debug ***********
     testJoystick @52 :Joystick;

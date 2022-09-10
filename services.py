@@ -70,6 +70,9 @@ services = {
   "qRoadEncodeIdx": (False, 20.),
   "userFlag": (True, 0., 1),
 
+  # driving coach
+  "drivingCoachState": (True, 20., 5),
+
   # debug
   "testJoystick": (True, 0.),
   "roadEncodeData": (False, 20.),
